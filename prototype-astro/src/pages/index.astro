@@ -5,9 +5,7 @@ import { dynasties } from '../data/dynasties';
 
 <Layout title="华夏春秋 | Chronicles of China" fullscreen={true}>
   <!-- 千里江山图 background with parallax -->
-  <div id="ink-bg" aria-hidden="true">
-    <div id="ink-canvas" style={`background-image: url(${import.meta.env.BASE_URL}images/qianli-jiangshan.jpg)`}></div>
-  </div>
+  <div id="ink-bg" aria-hidden="true" style={`background-image: url(${import.meta.env.BASE_URL}images/qianli-jiangshan.jpg)`}></div>
 
   <!-- Fixed header overlay -->
   <div class="fixed top-0 left-0 right-0 z-50 bg-night/80 backdrop-blur-md border-b border-gold/10">
@@ -120,7 +118,7 @@ import { dynasties } from '../data/dynasties';
   const container = document.getElementById('scroll-container');
   const progressBar = document.getElementById('progress-bar');
   const currentEra = document.getElementById('current-era');
-  const inkCanvas = document.getElementById('ink-canvas');
+  const inkBg = document.getElementById('ink-bg');
 
   if (container) {
     let isDown = false;
@@ -186,8 +184,9 @@ import { dynasties } from '../data/dynasties';
       if (progressBar) {
         progressBar.style.transform = `scaleX(${progress})`;
       }
-      if (inkCanvas) {
-        inkCanvas.style.transform = `translate3d(-${container.scrollLeft * 0.18}px, 0, 0)`;
+      // Pan the painting left-to-right as the scroll progresses
+      if (inkBg) {
+        inkBg.style.backgroundPositionX = `${progress * 80}%`;
       }
 
       const sections = document.querySelectorAll('.dynasty-section');
