@@ -170,6 +170,24 @@ Slugs come from the `slug` field in `dynasties.ts`. Valid slugs: `shanggu`, `xia
 
 ---
 
+## Git Workflow
+
+### When to push directly to `main`
+Push directly (no PR) for any change that does **not** touch content Markdown files:
+- CSS / styling (`global.css`, `tailwind.config.mjs`)
+- Astro templates / layouts (`.astro` files)
+- TypeScript / JavaScript logic
+- Configuration files (`astro.config.mjs`, `deploy.yml`, etc.)
+- Data file (`src/data/dynasties.ts`)
+- Docs (`CLAUDE.md`, `README.md`, `SPEC.md`)
+
+Pushing to `main` automatically triggers the GitHub Actions build and deploys to GitHub Pages.
+
+### When to open a PR for review
+Open a PR **only** when the change includes new or edited **content Markdown** files (future `content/zh/` or `content/en/` directories). These need human review for historical accuracy and translation quality before going live.
+
+---
+
 ## Code Conventions
 
 - **Astro components**: frontmatter (TypeScript) + HTML template + optional `<script>` and `<style>` blocks
