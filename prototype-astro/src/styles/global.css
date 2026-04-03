@@ -42,42 +42,9 @@
   top: 0;
   bottom: 0;
   left: 0;
-  /* Wide enough so 18% parallax has room across full scroll */
   width: 260vw;
   will-change: transform;
-  /* Rice paper (宣纸) — warm aged white, the correct base for 泼墨 */
-  background-color: #ddd7cb;
-  background-image:
-    /* ── Left mountain mass — heavy ink ── */
-    radial-gradient(ellipse 20% 55% at 7% 40%, rgba(12,8,4,0.92) 0%, rgba(12,8,4,0.6) 38%, rgba(12,8,4,0.15) 62%, transparent 75%),
-    radial-gradient(ellipse 12% 32% at 15% 68%, rgba(12,8,4,0.75) 0%, rgba(12,8,4,0.2) 55%, transparent 68%),
-    /* ink splash/drip left */
-    radial-gradient(ellipse 6% 18% at 10% 82%, rgba(12,8,4,0.55) 0%, transparent 62%),
-
-    /* ── Center-left peak ── */
-    radial-gradient(ellipse 14% 44% at 32% 33%, rgba(12,8,4,0.88) 0%, rgba(12,8,4,0.45) 44%, rgba(12,8,4,0.1) 62%, transparent 75%),
-    radial-gradient(ellipse 8% 22% at 37% 62%, rgba(12,8,4,0.6) 0%, transparent 60%),
-
-    /* ── Pale mist band at the horizon — lighter than paper ── */
-    radial-gradient(ellipse 140% 16% at 50% 56%, rgba(255,252,245,0.72) 0%, rgba(240,235,224,0.35) 55%, transparent 85%),
-
-    /* ── Center atmospheric haze ── */
-    radial-gradient(ellipse 45% 30% at 55% 48%, rgba(230,225,212,0.55) 0%, transparent 72%),
-
-    /* ── Center-right large mass ── */
-    radial-gradient(ellipse 22% 50% at 66% 38%, rgba(12,8,4,0.90) 0%, rgba(12,8,4,0.55) 40%, rgba(12,8,4,0.12) 60%, transparent 74%),
-    radial-gradient(ellipse 10% 26% at 73% 65%, rgba(12,8,4,0.65) 0%, transparent 60%),
-    radial-gradient(ellipse 6% 16% at 69% 82%, rgba(12,8,4,0.5) 0%, transparent 58%),
-
-    /* ── Far-right cluster ── */
-    radial-gradient(ellipse 17% 46% at 87% 42%, rgba(12,8,4,0.86) 0%, rgba(12,8,4,0.48) 42%, rgba(12,8,4,0.1) 60%, transparent 74%),
-    radial-gradient(ellipse 9% 22% at 93% 64%, rgba(12,8,4,0.58) 0%, transparent 58%),
-
-    /* ── Ground ink wash — dark bottom ── */
-    radial-gradient(ellipse 150% 30% at 50% 105%, rgba(12,8,4,0.65) 0%, rgba(12,8,4,0.2) 55%, transparent 75%),
-
-    /* ── Sky: slightly lighter/cooler than paper ── */
-    radial-gradient(ellipse 150% 35% at 50% -5%, rgba(255,253,248,0.5) 0%, transparent 72%);
+  /* SVG child handles all painting */
 }
 
 /* ===== Scroll Surface ===== */
