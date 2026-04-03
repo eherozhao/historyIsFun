@@ -83,9 +83,9 @@
 
 /* ===== Dynasty Section within Scroll ===== */
 .dynasty-section {
-  min-width: 420px;
-  max-width: 420px;
-  padding: 3rem 2.5rem;
+  min-width: 480px;
+  max-width: 480px;
+  padding: 1.5rem 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
