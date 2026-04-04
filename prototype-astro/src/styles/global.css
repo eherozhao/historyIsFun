@@ -214,8 +214,14 @@
 }
 
 /* ===== Markdown prose for dynasty content pages ===== */
+/*
+ * Font rule (user-approved):
+ * - Headings (h2, h3): font-heading = Georgia, "Noto Serif SC" — for titles and names only
+ * - Body text (p, li): font-body = system-ui, "Noto Serif SC" — clean reading font, NOT calligraphic
+ * - Never use font-display (Zhi Mang Xing / Ma Shan Zheng) inside prose
+ */
 .prose-dynasty {
-  font-family: "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
+  font-family: system-ui, -apple-system, "Noto Serif SC", serif;
   color: #3a2f1e;
   line-height: 1.95;
   font-size: 1rem;
@@ -223,11 +229,11 @@
 
 .prose-dynasty h2 {
   font-family: Georgia, "Noto Serif SC", serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #2c2418;
-  margin-top: 3rem;
-  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
   border-left: 2px solid #a67c3d;
   padding-left: 1rem;
   letter-spacing: 0.02em;
@@ -239,20 +245,22 @@
 
 .prose-dynasty h3 {
   font-family: Georgia, "Noto Serif SC", serif;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #3a2f1e;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   letter-spacing: 0.02em;
 }
 
 .prose-dynasty p {
+  font-family: system-ui, -apple-system, "Noto Serif SC", serif;
   margin-bottom: 1.4rem;
 }
 
 .prose-dynasty ul,
 .prose-dynasty ol {
+  font-family: system-ui, -apple-system, "Noto Serif SC", serif;
   padding-left: 1.5rem;
   margin-bottom: 1.4rem;
 }
@@ -289,32 +297,33 @@
   font-style: italic;
 }
 
-/* ===== References section styling ===== */
-.prose-dynasty h2:last-of-type,
-.prose-dynasty h2.references-heading {
-  font-size: 0.85rem;
+/* ===== References section — muted, small ===== */
+.prose-dynasty h2:last-of-type {
+  font-size: 0.8rem;
   color: #7a6a55;
-  margin-top: 3.5rem;
-  border-left-color: rgba(166, 124, 61, 0.3);
+  margin-top: 3rem;
+  border-left-color: rgba(166, 124, 61, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .prose-dynasty h2:last-of-type ~ p,
 .prose-dynasty h2:last-of-type ~ ul {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: #8a7a68;
   line-height: 1.75;
 }
 
 .prose-dynasty h2:last-of-type ~ ul li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .prose-dynasty h2:last-of-type ~ h3 {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: #8a7a68;
   font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.04em;
+  margin-top: 0.75rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
