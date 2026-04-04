@@ -341,24 +341,28 @@ const eventsJson  = JSON.stringify(events);
           </nav>
     </div><!-- /max-w-2xl -->
 
-    <!-- RIGHT: fixed detail panel (outside content flow, doesn't affect centering) -->
+    <!-- Backdrop (mobile only) -->
+    <div id="panel-backdrop"
+         class="fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 opacity-0 pointer-events-none"
+         style="display:none"></div>
+
+    <!-- Detail panel: bottom sheet on mobile, right-side drawer on desktop -->
     <aside
       id="detail-panel"
-      class="fixed top-20 right-6 w-80 max-h-[80vh] overflow-y-auto z-40
-             rounded-lg bg-[#f2e8d5] border border-gold/10 shadow-xl
+      class="fixed z-40 bg-[#f2e8d5] border-gold/10 shadow-2xl overflow-y-auto
              transition-all duration-300
-             opacity-0 pointer-events-none translate-x-4"
+             panel-hidden"
       style="display:none"
       aria-live="polite"
     >
       <div class="flex items-center justify-between px-5 py-4 border-b border-gold/10">
         <span id="panel-tag" class="text-xs text-gold/60 tracking-widest uppercase"></span>
         <button id="panel-close"
-                class="text-ink-faint hover:text-vermillion transition-colors text-xs tracking-wider cursor-pointer">
+                class="text-ink-faint hover:text-vermillion transition-colors p-2 cursor-pointer text-base leading-none">
           ✕
         </button>
       </div>
-      <div id="panel-body" class="px-5 py-5"></div>
+      <div id="panel-body" class="px-5 py-5 pb-8"></div>
     </aside>
 
   </section>
@@ -366,6 +370,36 @@ const eventsJson  = JSON.stringify(events);
 </Layout>
 
 <style>
+  /* Detail panel: bottom sheet on mobile, right drawer on desktop */
+  #detail-panel {
+    /* Mobile: full-width bottom sheet */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 72vh;
+    border-radius: 1.25rem 1.25rem 0 0;
+    border: 1px solid rgba(166,124,61,0.15);
+    border-bottom: none;
+  }
+  #detail-panel.panel-hidden  { transform: translateY(100%); opacity: 0; pointer-events: none; }
+  #detail-panel.panel-visible { transform: translateY(0);    opacity: 1; pointer-events: auto; }
+
+  @media (min-width: 768px) {
+    /* Desktop: right-side fixed drawer */
+    #detail-panel {
+      left: auto;
+      right: 1.5rem;
+      bottom: auto;
+      top: 5rem;
+      width: 20rem;
+      max-height: 80vh;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(166,124,61,0.15);
+    }
+    #detail-panel.panel-hidden  { transform: translateX(1rem); opacity: 0; pointer-events: none; }
+    #detail-panel.panel-visible { transform: translateX(0);    opacity: 1; pointer-events: auto; }
+  }
+
   /* Section heading: font-heading, prominent */
   .section-heading {
     font-family: Georgia, "Noto Serif SC", serif;
@@ -407,7 +441,8 @@ const eventsJson  = JSON.stringify(events);
   const figures = JSON.parse(figuresJson);
   const events  = JSON.parse(eventsJson);
 
-  const panel     = document.getElementById('detail-panel');
+  const panel    = document.getElementById('detail-panel');
+  const backdrop = document.getElementById('panel-backdrop');
   const panelBody = document.getElementById('panel-body');
   const panelTag  = document.getElementById('panel-tag');
   const closeBtn  = document.getElementById('panel-close');
@@ -416,20 +451,34 @@ const eventsJson  = JSON.stringify(events);
     if (!panel || !panelBody || !panelTag) return;
     panelTag.textContent = tag;
     panelBody.innerHTML  = html;
-    panel.style.display = 'block';
+    // Show both panel and backdrop
+    panel.style.display    = 'block';
+    if (backdrop) { backdrop.style.display = 'block'; }
     panel.offsetHeight; // force reflow
-    panel.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-4');
-    panel.classList.add('opacity-100', 'pointer-events-auto', 'translate-x-0');
+    panel.classList.remove('panel-hidden');
+    panel.classList.add('panel-visible');
+    if (backdrop) {
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+    }
   }
 
   function hidePanel() {
     if (!panel) return;
-    panel.classList.add('opacity-0', 'pointer-events-none', 'translate-x-4');
-    panel.classList.remove('opacity-100', 'pointer-events-auto', 'translate-x-0');
-    setTimeout(() => { panel.style.display = 'none'; }, 300);
+    panel.classList.remove('panel-visible');
+    panel.classList.add('panel-hidden');
+    if (backdrop) {
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    setTimeout(() => {
+      panel.style.display = 'none';
+      if (backdrop) backdrop.style.display = 'none';
+    }, 300);
   }
 
   closeBtn?.addEventListener('click', hidePanel);
+  backdrop?.addEventListener('click', hidePanel);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hidePanel(); });
 
   document.querySelectorAll('.figure-card').forEach(card => {
