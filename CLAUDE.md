@@ -167,6 +167,22 @@ These sizes were user-approved on the 北宋 page and apply to all dynasty detai
 
 Do not change these sizes without explicit user approval.
 
+### Font Usage Rules (locked)
+
+These rules were user-approved on the 北宋 page. Apply them to all dynasty detail pages:
+
+| Element | Font | Notes |
+|---------|------|-------|
+| Section headings (简介, 重要人物, 重大事件, 文化成就) | `font-heading` (Georgia, Noto Serif SC) | The ONLY body-area elements using heading font |
+| Avatar circle letter | `font-heading` | Calligraphic weight for single-character display |
+| Person names in cards | `body-text` (system-ui) | NOT heading font — treated as body content |
+| Event names (陈桥兵变, etc.) | `body-text` (system-ui) | NOT heading font |
+| Achievement titles (交子——世界最早的纸币, etc.) | `body-text` (system-ui) | NOT heading font |
+| Achievement sub-section labels (经济, 政治, 文化) | `body-text font-semibold` | NOT heading font |
+| All other prose / descriptions | `body-text` (system-ui) | Clean reading font, never calligraphic |
+
+**Rule**: `font-heading` is reserved for section-level titles and the avatar circle only. Everything else (names, event titles, achievement titles, descriptions) uses `system-ui` body font. Never use `font-display` (Zhi Mang Xing / Ma Shan Zheng) inside the content area — it is only for the dynasty H1 name in the hero.
+
 ---
 
 ## Routing
