@@ -52,6 +52,7 @@ const L = {
   prev:       isZh ? '上一朝'  : 'Previous',
   next:       isZh ? '下一朝'  : 'Next',
   comingSoon: isZh ? '内容正在整理中，敬请期待。' : 'Content coming soon.',
+  clickHint:  isZh ? '点击人物或事件\n查看详细信息' : 'Click a figure or event\nto view details',
 };
 
 const figuresJson = JSON.stringify(figures);
@@ -63,19 +64,16 @@ const eventsJson  = JSON.stringify(events);
   <!-- ── HERO ── -->
   <section class="bg-night relative overflow-hidden">
 
-    {/* Artwork background layer — only when dynasty has artwork */}
     {dynasty.artwork && (
       <div class="absolute inset-0 pointer-events-none artwork-bg"
            style={`background-image: url(${import.meta.env.BASE_URL}${dynasty.artwork}); background-position: ${dynasty.artworkPosition ?? 'center center'};`}></div>
     )}
 
-    {/* Colour radial glow — stays on top of artwork */}
-    <div class="absolute inset-0 opacity-[0.25] pointer-events-none"
+    <div class="absolute inset-0 opacity-[0.3] pointer-events-none"
          style={`background: radial-gradient(ellipse at 50% 100%, ${dynasty.color}, transparent 65%);`}></div>
 
-    {/* Bottom fade to content section */}
-    <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
-         style="background: linear-gradient(to bottom, transparent, #0a0a0f);"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-28 pointer-events-none"
+         style="background: linear-gradient(to bottom, transparent, #f2e8d5);"></div>
 
     <div class="relative z-10 max-w-2xl mx-auto px-6 py-20 sm:py-28 text-center">
       <div class="w-8 h-px mx-auto mb-8" style={`background-color: ${dynasty.color}; opacity: 0.5;`}></div>
@@ -102,7 +100,17 @@ const eventsJson  = JSON.stringify(events);
 
   <!-- ── CONTENT ── -->
   <section class="scroll-surface">
-    <div class="max-w-2xl mx-auto px-6 py-16 sm:py-20">
+    <!--
+      Two-column grid centred on the page.
+      Left: main content (readable width).
+      Right: sticky detail sidebar (desktop only — 18rem).
+      On mobile collapses to single column; sidebar hidden, bottom-sheet used instead.
+    -->
+    <div class="content-wrap py-16 sm:py-20">
+      <div class="content-grid">
+
+        <!-- ── LEFT: main content ── -->
+        <div class="min-w-0 px-6 lg:px-0">
 
           <!-- 简介 -->
           <div class="mb-16">
@@ -139,7 +147,6 @@ const eventsJson  = JSON.stringify(events);
                          style={`background-color: ${dynasty.color}; opacity:0.85;`}>
                       {figure.name[0]}
                     </div>
-                    <!-- person name: body font in card, heading font only in avatar -->
                     <p class="body-text font-semibold text-ink group-hover:text-vermillion
                               transition-colors leading-snug">
                       {figure.name}
@@ -173,9 +180,7 @@ const eventsJson  = JSON.stringify(events);
                     <div class="absolute -left-[29px] w-3 h-3 rounded-full border-2
                                 border-gold/40 bg-scroll group-hover:border-vermillion
                                 group-hover:bg-vermillion/20 transition-colors mt-1.5"></div>
-                    <!-- year: body font -->
                     <p class="body-text-sm text-gold/70 tracking-widest mb-1">{event.year}</p>
-                    <!-- event name: body font, NOT heading font -->
                     <p class="body-text font-semibold text-ink group-hover:text-vermillion
                               transition-colors">
                       {event.name}
@@ -196,7 +201,6 @@ const eventsJson  = JSON.stringify(events);
                 {L.culture}
                 <span class="section-heading-en">Cultural Achievements</span>
               </h2>
-
               {[
                 { label: L.economy,    items: achievements.economy },
                 { label: L.politics,   items: achievements.politics },
@@ -207,13 +211,11 @@ const eventsJson  = JSON.stringify(events);
                                   border-b border-gold/15 select-none">
                     <span class="text-gold/60 text-xs transition-transform duration-200
                                  group-open:rotate-90">▶</span>
-                    <!-- sub-section label: body font, medium weight -->
                     <span class="body-text font-semibold text-ink">{section.label}</span>
                   </summary>
                   <div class="pt-4 space-y-6">
                     {section.items!.map(item => (
                       <div class="pl-4 border-l border-gold/15">
-                        <!-- achievement title: body font, NOT heading font -->
                         <p class="body-text font-semibold text-ink mb-1">{item.title}</p>
                         <p class="body-text text-ink-light leading-[1.85]">{item.description}</p>
                         {(item.artifact || item.museum) && (
@@ -243,7 +245,7 @@ const eventsJson  = JSON.stringify(events);
             <>
               <div class="grid sm:grid-cols-2 gap-8 mb-14">
                 <div>
-                  <h3 class="font-heading text-lg text-ink mb-4 gold-left-accent">{L.figures}</h3>
+                  <h3 class="font-heading text-lg text-ink mb-4">{L.figures}</h3>
                   <div class="space-y-4 mt-4">
                     {[1,2,3].map(() => (
                       <div class="flex items-center gap-3">
@@ -257,7 +259,7 @@ const eventsJson  = JSON.stringify(events);
                   </div>
                 </div>
                 <div>
-                  <h3 class="font-heading text-lg text-ink mb-4 gold-left-accent">{L.events}</h3>
+                  <h3 class="font-heading text-lg text-ink mb-4">{L.events}</h3>
                   <div class="space-y-4 mt-4">
                     {[1,2,3].map(() => (
                       <div class="flex items-center gap-3">
@@ -271,16 +273,10 @@ const eventsJson  = JSON.stringify(events);
                   </div>
                 </div>
               </div>
-              <div class="mb-14">
-                <h3 class="font-heading text-lg text-ink mb-4 gold-left-accent">{L.culture}</h3>
-                <div class="mt-4 grid grid-cols-3 gap-4">
-                  {[1,2,3].map(() => <div class="aspect-[4/3] bg-scroll-dark rounded"></div>)}
-                </div>
-              </div>
             </>
           )}
 
-          <!-- 参考资料 / References — always last -->
+          <!-- 参考资料 -->
           {references && (
             <div class="mb-16 pt-10 border-t border-gold/10">
               <h2 class="text-xs font-body font-semibold tracking-[0.12em] uppercase
@@ -351,22 +347,54 @@ const eventsJson  = JSON.stringify(events);
               </a>
             ) : <div />}
           </nav>
-    </div><!-- /max-w-2xl -->
+        </div><!-- /main content -->
 
-    <!-- Backdrop (mobile only) -->
+        <!-- ── RIGHT: sticky detail sidebar (desktop only) ── -->
+        <aside id="detail-sidebar" class="hidden lg:flex flex-col sticky top-20 self-start">
+
+          <!-- Placeholder — shown when nothing is selected -->
+          <div id="sidebar-placeholder"
+               class="flex flex-col items-center justify-center text-center
+                      rounded-xl border border-gold/10 bg-scroll-dark/20
+                      px-6 py-12 gap-3">
+            <div class="w-8 h-8 rounded-full border border-gold/20 flex items-center justify-center">
+              <span class="text-gold/40 text-xs">↗</span>
+            </div>
+            <p class="body-text-sm text-ink-faint leading-relaxed">
+              {isZh ? '点击人物或事件\n查看详细信息' : 'Click a figure or event\nto view details'}
+            </p>
+          </div>
+
+          <!-- Detail card — hidden until something is clicked -->
+          <div id="sidebar-detail"
+               class="hidden rounded-xl border border-gold/10 bg-[#f2e8d5]
+                      shadow-sm overflow-hidden
+                      transition-all duration-300">
+            <div class="flex items-center justify-between px-5 py-3 border-b border-gold/10">
+              <span id="sidebar-tag" class="text-xs text-gold/60 tracking-widest uppercase"></span>
+              <button id="sidebar-close"
+                      class="text-ink-faint hover:text-vermillion transition-colors p-1 cursor-pointer text-sm leading-none">
+                ✕
+              </button>
+            </div>
+            <div id="sidebar-body" class="px-5 py-5 max-h-[70vh] overflow-y-auto"></div>
+          </div>
+
+        </aside>
+
+      </div><!-- /content-grid -->
+    </div><!-- /content-wrap -->
+
+    <!-- Mobile only: backdrop + bottom sheet -->
     <div id="panel-backdrop"
-         class="fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 opacity-0 pointer-events-none"
+         class="lg:hidden fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 opacity-0 pointer-events-none"
          style="display:none"></div>
 
-    <!-- Detail panel: bottom sheet on mobile, right-side drawer on desktop -->
-    <aside
-      id="detail-panel"
-      class="fixed z-40 bg-[#f2e8d5] border-gold/10 shadow-2xl overflow-y-auto
-             transition-all duration-300
-             panel-hidden"
-      style="display:none"
-      aria-live="polite"
-    >
+    <aside id="detail-panel"
+           class="lg:hidden fixed z-40 bg-[#f2e8d5] shadow-2xl overflow-y-auto
+                  transition-all duration-300 panel-hidden"
+           style="display:none"
+           aria-live="polite">
       <div class="flex items-center justify-between px-5 py-4 border-b border-gold/10">
         <span id="panel-tag" class="text-xs text-gold/60 tracking-widest uppercase"></span>
         <button id="panel-close"
@@ -382,21 +410,41 @@ const eventsJson  = JSON.stringify(events);
 </Layout>
 
 <style>
-  /* Artwork hero background */
+  /* Artwork hero background — increased opacity so it's actually visible */
   .artwork-bg {
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.13;
-    filter: saturate(0.5) brightness(0.7);
-    transform: scale(1.03); /* slight scale so edges don't show on overflow:hidden */
+    opacity: 0.22;
+    filter: saturate(0.45) brightness(0.65);
+    transform: scale(1.03);
   }
 
-  /* Detail panel: bottom sheet on mobile, right drawer on desktop */
+  /*
+   * Two-column layout:
+   * Centre the grid on the page. Left col = readable main content,
+   * right col = 18rem sticky sidebar.
+   * On < lg, single column (sidebar hidden, bottom-sheet used).
+   */
+  .content-wrap {
+    max-width: 72rem; /* ~1152px — comfortable for two columns */
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 1fr 18rem;
+      gap: 3rem;
+    }
+  }
+
+  /* Mobile bottom sheet */
   #detail-panel {
-    /* Mobile: full-width bottom sheet */
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0; right: 0; bottom: 0;
     max-height: 72vh;
     border-radius: 1.25rem 1.25rem 0 0;
     border: 1px solid rgba(166,124,61,0.15);
@@ -405,37 +453,10 @@ const eventsJson  = JSON.stringify(events);
   #detail-panel.panel-hidden  { transform: translateY(100%); opacity: 0; pointer-events: none; }
   #detail-panel.panel-visible { transform: translateY(0);    opacity: 1; pointer-events: auto; }
 
-  @media (min-width: 768px) {
-    /* Desktop default: right-side fixed drawer */
-    #detail-panel {
-      left: auto;
-      right: 1.5rem;
-      bottom: auto;
-      top: 5rem;
-      width: 18rem;
-      max-height: 80vh;
-      border-radius: 0.75rem;
-      border: 1px solid rgba(166,124,61,0.15);
-    }
-    #detail-panel.panel-hidden  { transform: translateX(1rem); opacity: 0; pointer-events: none; }
-    #detail-panel.panel-visible { transform: translateX(0);    opacity: 1; pointer-events: auto; }
-  }
-
-  @media (min-width: 1400px) {
-    /* Wide screen: panel sits in the right gutter, adjacent to content column.
-       Content column is max-w-2xl (42rem) centred, so its right edge is at calc(50% + 21rem).
-       Panel starts 1.5rem beyond that. */
-    #detail-panel {
-      left: calc(50% + 21rem + 1.5rem);
-      right: auto;
-      width: 20rem;
-    }
-  }
-
-  /* Section heading: font-heading, prominent */
+  /* Section headings */
   .section-heading {
     font-family: Georgia, "Noto Serif SC", serif;
-    font-size: 1.5rem;   /* text-2xl */
+    font-size: 1.5rem;
     font-weight: 600;
     color: #2c2418;
     margin-bottom: 1.5rem;
@@ -454,7 +475,6 @@ const eventsJson  = JSON.stringify(events);
     letter-spacing: 0.05em;
   }
 
-  /* Body text: system font, never calligraphic */
   .body-text {
     font-family: system-ui, -apple-system, "Noto Serif SC", sans-serif;
     font-size: 1rem;
@@ -473,26 +493,81 @@ const eventsJson  = JSON.stringify(events);
   const figures = JSON.parse(figuresJson);
   const events  = JSON.parse(eventsJson);
 
+  // Desktop sidebar elements
+  const sidebar        = document.getElementById('detail-sidebar');
+  const sidebarDetail  = document.getElementById('sidebar-detail');
+  const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
+  const sidebarTag     = document.getElementById('sidebar-tag');
+  const sidebarBody    = document.getElementById('sidebar-body');
+  const sidebarClose   = document.getElementById('sidebar-close');
+
+  // Mobile bottom-sheet elements
   const panel    = document.getElementById('detail-panel');
   const backdrop = document.getElementById('panel-backdrop');
-  const panelBody = document.getElementById('panel-body');
   const panelTag  = document.getElementById('panel-tag');
-  const closeBtn  = document.getElementById('panel-close');
+  const panelBody = document.getElementById('panel-body');
+  const panelClose = document.getElementById('panel-close');
 
-  function showPanel(tag, html) {
-    if (!panel || !panelBody || !panelTag) return;
-    panelTag.textContent = tag;
-    panelBody.innerHTML  = html;
-    // Show both panel and backdrop
-    panel.style.display    = 'block';
-    if (backdrop) { backdrop.style.display = 'block'; }
-    panel.offsetHeight; // force reflow
-    panel.classList.remove('panel-hidden');
-    panel.classList.add('panel-visible');
-    if (backdrop) {
-      backdrop.classList.remove('opacity-0', 'pointer-events-none');
-      backdrop.classList.add('opacity-100', 'pointer-events-auto');
+  const isDesktop = () => window.innerWidth >= 1024;
+
+  function detailHTML(type, data) {
+    if (type === 'figure') {
+      const f = data;
+      return `
+        <div style="width:3.5rem;height:3.5rem;border-radius:50%;display:flex;
+                    align-items:center;justify-content:center;margin-bottom:1rem;
+                    font-family:Georgia,serif;font-size:1.5rem;color:#fff;font-weight:700;
+                    background-color:${dynastyColor};">${f.name[0]}</div>
+        <p style="font-family:system-ui,sans-serif;font-size:1.05rem;font-weight:600;
+                  color:#2c2418;margin-bottom:0.2rem;">${f.name}</p>
+        ${f.englishName ? `<p style="font-size:0.8rem;color:#8a7a68;margin-bottom:0.2rem;">${f.englishName}</p>` : ''}
+        <p style="font-size:0.8rem;color:#6a5a48;margin-bottom:0.2rem;">${f.role}</p>
+        ${f.years ? `<p style="font-size:0.75rem;color:#a67c3d;margin-bottom:1rem;">${f.years}</p>` : '<div style="margin-bottom:1rem;"></div>'}
+        <div style="width:2rem;height:1px;background:#a67c3d;opacity:0.4;margin-bottom:1rem;"></div>
+        <p style="font-family:system-ui,sans-serif;font-size:0.875rem;color:#5a4a35;line-height:1.85;">${f.bio}</p>
+      `;
+    } else {
+      const ev = data;
+      return `
+        <p style="font-size:0.75rem;color:#a67c3d;letter-spacing:0.08em;margin-bottom:0.5rem;">${ev.year}</p>
+        <p style="font-family:system-ui,sans-serif;font-size:1.05rem;font-weight:600;
+                  color:#2c2418;margin-bottom:0.2rem;">${ev.name}</p>
+        ${ev.englishName ? `<p style="font-size:0.8rem;color:#8a7a68;margin-bottom:1rem;">${ev.englishName}</p>` : '<div style="margin-bottom:1rem;"></div>'}
+        <div style="width:2rem;height:1px;background:#a67c3d;opacity:0.4;margin-bottom:1rem;"></div>
+        <p style="font-family:system-ui,sans-serif;font-size:0.875rem;color:#5a4a35;line-height:1.85;">${ev.description}</p>
+      `;
     }
+  }
+
+  function showDetail(tag, html) {
+    if (isDesktop()) {
+      // Desktop: update inline sidebar
+      if (!sidebarTag || !sidebarBody || !sidebarDetail || !sidebarPlaceholder) return;
+      sidebarTag.textContent = tag;
+      sidebarBody.innerHTML  = html;
+      sidebarPlaceholder.style.display = 'none';
+      sidebarDetail.style.display = 'block';
+    } else {
+      // Mobile: bottom sheet
+      if (!panel || !panelTag || !panelBody) return;
+      panelTag.textContent = tag;
+      panelBody.innerHTML  = html;
+      panel.style.display = 'block';
+      if (backdrop) backdrop.style.display = 'block';
+      panel.offsetHeight;
+      panel.classList.remove('panel-hidden');
+      panel.classList.add('panel-visible');
+      if (backdrop) {
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    }
+  }
+
+  function hideSidebar() {
+    if (!sidebarDetail || !sidebarPlaceholder) return;
+    sidebarDetail.style.display = 'none';
+    sidebarPlaceholder.style.display = '';
   }
 
   function hidePanel() {
@@ -509,27 +584,18 @@ const eventsJson  = JSON.stringify(events);
     }, 300);
   }
 
-  closeBtn?.addEventListener('click', hidePanel);
+  sidebarClose?.addEventListener('click', hideSidebar);
+  panelClose?.addEventListener('click', hidePanel);
   backdrop?.addEventListener('click', hidePanel);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hidePanel(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { hideSidebar(); hidePanel(); }
+  });
 
   document.querySelectorAll('.figure-card').forEach(card => {
     card.addEventListener('click', () => {
       const f = figures[parseInt(card.dataset.index)];
       if (!f) return;
-      showPanel('人物 · Figure', `
-        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4
-                    font-serif text-2xl text-white font-bold"
-             style="background-color:${dynastyColor};">${f.name[0]}</div>
-        <p style="font-family:system-ui,sans-serif;font-size:1.1rem;font-weight:600;
-                  color:#2c2418;margin-bottom:0.25rem;">${f.name}</p>
-        ${f.englishName ? `<p style="font-size:0.8rem;color:#8a7a68;margin-bottom:0.25rem;">${f.englishName}</p>` : ''}
-        <p style="font-size:0.8rem;color:#6a5a48;margin-bottom:0.25rem;">${f.role}</p>
-        ${f.years ? `<p style="font-size:0.75rem;color:#a67c3d;margin-bottom:1rem;">${f.years}</p>` : '<div style="margin-bottom:1rem;"></div>'}
-        <div style="width:2rem;height:1px;background:#a67c3d;opacity:0.4;margin-bottom:1rem;"></div>
-        <p style="font-family:system-ui,sans-serif;font-size:0.875rem;color:#5a4a35;
-                  line-height:1.85;">${f.bio}</p>
-      `);
+      showDetail('人物 · Figure', detailHTML('figure', f));
     });
   });
 
@@ -537,16 +603,7 @@ const eventsJson  = JSON.stringify(events);
     card.addEventListener('click', () => {
       const ev = events[parseInt(card.dataset.index)];
       if (!ev) return;
-      showPanel('事件 · Event', `
-        <p style="font-size:0.75rem;color:#a67c3d;letter-spacing:0.08em;
-                  margin-bottom:0.5rem;">${ev.year}</p>
-        <p style="font-family:system-ui,sans-serif;font-size:1.1rem;font-weight:600;
-                  color:#2c2418;margin-bottom:0.25rem;">${ev.name}</p>
-        ${ev.englishName ? `<p style="font-size:0.8rem;color:#8a7a68;margin-bottom:1rem;">${ev.englishName}</p>` : '<div style="margin-bottom:1rem;"></div>'}
-        <div style="width:2rem;height:1px;background:#a67c3d;opacity:0.4;margin-bottom:1rem;"></div>
-        <p style="font-family:system-ui,sans-serif;font-size:0.875rem;color:#5a4a35;
-                  line-height:1.85;">${ev.description}</p>
-      `);
+      showDetail('事件 · Event', detailHTML('event', ev));
     });
   });
 </script>
