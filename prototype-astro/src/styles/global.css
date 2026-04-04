@@ -221,9 +221,9 @@
  * - Never use font-display (Zhi Mang Xing / Ma Shan Zheng) inside prose
  */
 .prose-dynasty {
-  font-family: system-ui, -apple-system, "Noto Serif SC", serif;
+  font-family: system-ui, -apple-system, "Noto Serif SC", sans-serif;
   color: #3a2f1e;
-  line-height: 1.95;
+  line-height: 1.9;
   font-size: 1rem;
 }
 
