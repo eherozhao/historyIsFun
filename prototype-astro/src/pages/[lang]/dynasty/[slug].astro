@@ -610,9 +610,15 @@ const artifactsJson = JSON.stringify(allArtifacts);
   }
 </style>
 
-<script define:vars={{ figuresJson, eventsJson, artifactsJson, dynastyColor: dynasty.color }}>
-  const figures = JSON.parse(figuresJson);
-  const events  = JSON.parse(eventsJson);
+  <script type="application/json" id="dynasty-data" set:html={JSON.stringify({
+    figures, events, artifacts: allArtifacts, dynastyColor: dynasty.color
+  })} />
+  <script>
+  const _data = JSON.parse(document.getElementById('dynasty-data').textContent);
+  const figures = _data.figures;
+  const events  = _data.events;
+  const artifacts = _data.artifacts;
+  const dynastyColor = _data.dynastyColor;
 
   // Desktop sidebar (wide screens only)
   const sidebar     = document.getElementById('detail-sidebar');
@@ -744,7 +750,6 @@ const artifactsJson = JSON.stringify(allArtifacts);
     });
   });
   // Artifact lightbox
-  const artifacts = JSON.parse(artifactsJson);
   const lightbox = document.getElementById('artifact-lightbox');
   const lbClose = document.getElementById('lightbox-close');
   const lbBackdrop = lightbox?.querySelector('.artifact-lightbox-backdrop');
