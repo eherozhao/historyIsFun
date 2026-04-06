@@ -377,7 +377,7 @@ const artifactsJson = JSON.stringify(allArtifacts);
           </a>
         ) : <div />}
 
-        <a href={import.meta.env.BASE_URL}
+        <a href={`${import.meta.env.BASE_URL}#${dynasty.slug}`}
            class="body-text-sm text-ink-faint hover:text-vermillion transition-colors tracking-[0.2em] uppercase">
           {L.back}
         </a>

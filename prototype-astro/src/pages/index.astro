@@ -76,6 +76,7 @@ import { dynasties } from '../data/dynasties';
           <div
             class="dynasty-section scroll-reveal group relative z-10"
             data-era={dynasty.englishName}
+            data-slug={dynasty.slug}
           >
             <a
               href={`${import.meta.env.BASE_URL}zh/dynasty/${dynasty.slug}`}
@@ -366,5 +367,19 @@ import { dynasties } from '../data/dynasties';
         closeDropdown();
       });
     });
+
+    // Scroll to dynasty if URL has a hash (e.g. #beisong)
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const target = document.querySelector(`.dynasty-section[data-slug="${hash}"]`);
+      if (target) {
+        requestAnimationFrame(() => {
+          const rect = target.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          container.scrollLeft = rect.left - containerRect.left + container.scrollLeft - containerRect.width / 2 + rect.width / 2;
+          target.classList.add('visible');
+        });
+      }
+    }
   }
 </script>
