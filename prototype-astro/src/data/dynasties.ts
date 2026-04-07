@@ -66,6 +66,8 @@ export const dynasties: Dynasty[] = [
     years: [-221, -207],
     description: '秦始皇统一六国，书同文、车同轨，建长城，开创大一统帝国时代。',
     color: '#1A1A1A',
+    artwork: 'images/qin-bronze-chariot.jpg',
+    artworkPosition: 'center 40%',
   },
   {
     slug: 'xihan',
@@ -138,6 +140,8 @@ export const dynasties: Dynasty[] = [
     years: [618, 907],
     description: '贞观之治、开元盛世，诗歌的黄金时代。李白、杜甫、白居易光耀千古。',
     color: '#C8A45C',
+    artwork: 'images/tang-bunian-tu.jpg',
+    artworkPosition: 'center 35%',
   },
   {
     slug: 'wudai',
