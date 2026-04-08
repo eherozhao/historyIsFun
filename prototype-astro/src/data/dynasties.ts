@@ -10,6 +10,8 @@ export interface Dynasty {
   artwork?: string;
   /** CSS background-position for the artwork, e.g. "center 30%" */
   artworkPosition?: string;
+  /** CSS object-fit for the artwork, defaults to 'cover' */
+  artworkFit?: string;
 }
 
 export const dynasties: Dynasty[] = [
@@ -21,6 +23,8 @@ export const dynasties: Dynasty[] = [
     years: [-2700, -2070],
     description: '三皇五帝的神话时代，华夏文明的源头，包括黄帝、尧、舜等传说中的圣王。',
     color: '#8B7355',
+    artwork: 'images/dynasties/shanggu.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'xia',
@@ -30,6 +34,8 @@ export const dynasties: Dynasty[] = [
     years: [-2070, -1600],
     description: '中国历史上第一个世袭王朝，大禹治水，开创家天下之先河。',
     color: '#6B8E23',
+    artwork: 'images/dynasties/xia.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'shang',
@@ -39,6 +45,8 @@ export const dynasties: Dynasty[] = [
     years: [-1600, -1046],
     description: '甲骨文与青铜器的辉煌时代，殷墟遗址见证了早期中华文明的高度发展。',
     color: '#8B6914',
+    artwork: 'images/dynasties/shang.jpg',
+    artworkPosition: 'center 40%',
   },
   {
     slug: 'xizhou',
@@ -48,6 +56,8 @@ export const dynasties: Dynasty[] = [
     years: [-1046, -771],
     description: '周公制礼作乐，分封诸侯，奠定了中华礼乐文明的基础。',
     color: '#2E8B57',
+    artwork: 'images/dynasties/xizhou.jpg',
+    artworkPosition: 'center 30%',
   },
   {
     slug: 'dongzhou',
@@ -57,6 +67,8 @@ export const dynasties: Dynasty[] = [
     years: [-770, -221],
     description: '春秋战国，百家争鸣。孔子、老子、孟子等思想巨匠辈出，奠定中华思想根基。',
     color: '#4682B4',
+    artwork: 'images/dynasties/dongzhou.jpg',
+    artworkPosition: 'center 30%',
   },
   {
     slug: 'qin',
@@ -66,7 +78,7 @@ export const dynasties: Dynasty[] = [
     years: [-221, -207],
     description: '秦始皇统一六国，书同文、车同轨，建长城，开创大一统帝国时代。',
     color: '#1A1A1A',
-    artwork: 'images/qin-bronze-chariot.jpg',
+    artwork: 'images/dynasties/qin.jpg',
     artworkPosition: 'center 40%',
   },
   {
@@ -77,6 +89,8 @@ export const dynasties: Dynasty[] = [
     years: [-202, 8],
     description: '汉武帝开疆拓土，张骞通西域，丝绸之路开启东西方文明交流。',
     color: '#C41E24',
+    artwork: 'images/dynasties/xihan.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'donghan',
@@ -86,6 +100,8 @@ export const dynasties: Dynasty[] = [
     years: [25, 220],
     description: '光武中兴，造纸术改良，佛教东传，班超经营西域。',
     color: '#B22222',
+    artwork: 'images/dynasties/donghan.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'sanguo',
@@ -95,6 +111,8 @@ export const dynasties: Dynasty[] = [
     years: [220, 280],
     description: '魏蜀吴三足鼎立，英雄辈出。诸葛亮、关羽、曹操的故事千古流传。',
     color: '#8B0000',
+    artwork: 'images/dynasties/sanguo.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'xijin',
@@ -104,6 +122,8 @@ export const dynasties: Dynasty[] = [
     years: [265, 316],
     description: '司马氏统一三国，短暂统一后陷入八王之乱，最终导致五胡乱华。',
     color: '#556B2F',
+    artwork: 'images/dynasties/xijin.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'dongjin',
@@ -113,6 +133,8 @@ export const dynasties: Dynasty[] = [
     years: [317, 420],
     description: '衣冠南渡，王羲之书法绝伦，陶渊明归隐田园，士族文化达到鼎盛。',
     color: '#2F4F4F',
+    artwork: 'images/dynasties/dongjin.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'nanbeichao',
@@ -122,6 +144,8 @@ export const dynasties: Dynasty[] = [
     years: [420, 589],
     description: '民族大融合时期，佛教艺术繁荣，云冈、龙门石窟开凿。',
     color: '#483D8B',
+    artwork: 'images/dynasties/nanbeichao.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'sui',
@@ -131,6 +155,8 @@ export const dynasties: Dynasty[] = [
     years: [581, 618],
     description: '隋文帝重新统一中国，开创科举制度，修建大运河，为盛唐奠基。',
     color: '#006400',
+    artwork: 'images/dynasties/sui.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'tang',
@@ -140,7 +166,7 @@ export const dynasties: Dynasty[] = [
     years: [618, 907],
     description: '贞观之治、开元盛世，诗歌的黄金时代。李白、杜甫、白居易光耀千古。',
     color: '#C8A45C',
-    artwork: 'images/tang-bunian-tu.jpg',
+    artwork: 'images/dynasties/tang.jpg',
     artworkPosition: 'center 35%',
   },
   {
@@ -151,7 +177,7 @@ export const dynasties: Dynasty[] = [
     years: [907, 979],
     description: '唐亡后中原政权更迭频繁，南方十国相对安定，文化中心南移。',
     color: '#696969',
-    artwork: 'images/night-revels.jpg',
+    artwork: 'images/dynasties/wudai.jpg',
     artworkPosition: 'center center',
   },
   {
@@ -162,7 +188,7 @@ export const dynasties: Dynasty[] = [
     years: [960, 1127],
     description: '经济文化空前繁荣，活字印刷、火药、指南针，清明上河图描绘盛世。',
     color: '#2B4490',
-    artwork: 'images/qianli-jiangshan.jpg',
+    artwork: 'images/dynasties/beisong.jpg',
     artworkPosition: 'center 40%',
   },
   {
@@ -173,6 +199,8 @@ export const dynasties: Dynasty[] = [
     years: [1127, 1279],
     description: '偏安江南，理学兴盛，辛弃疾、陆游的爱国诗词慷慨激昂。',
     color: '#4169E1',
+    artwork: 'images/dynasties/nansong.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'yuan',
@@ -182,6 +210,8 @@ export const dynasties: Dynasty[] = [
     years: [1271, 1368],
     description: '蒙古铁骑建立的大一统帝国，疆域空前辽阔，元曲繁荣，中西交流频繁。',
     color: '#1C1C1C',
+    artwork: 'images/dynasties/yuan.jpg',
+    artworkPosition: 'center 70%',
   },
   {
     slug: 'ming',
@@ -191,6 +221,8 @@ export const dynasties: Dynasty[] = [
     years: [1368, 1644],
     description: '郑和七下西洋，紫禁城巍峨矗立，《本草纲目》集医学大成。',
     color: '#C41E24',
+    artwork: 'images/dynasties/ming.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'qing',
@@ -200,6 +232,8 @@ export const dynasties: Dynasty[] = [
     years: [1636, 1912],
     description: '康乾盛世疆域辽阔，《红楼梦》文学巅峰，晚期遭遇千年未有之变局。',
     color: '#FFD700',
+    artwork: 'images/dynasties/qing.jpg',
+    artworkPosition: 'center 45%',
   },
   {
     slug: 'minguo',
@@ -209,6 +243,8 @@ export const dynasties: Dynasty[] = [
     years: [1912, 1949],
     description: '辛亥革命推翻帝制，五四运动唤醒民族意识，新文化运动开启现代化进程。',
     color: '#003366',
+    artwork: 'images/dynasties/minguo.jpg',
+    artworkPosition: 'center center',
   },
   {
     slug: 'gongheguo',
@@ -218,5 +254,7 @@ export const dynasties: Dynasty[] = [
     years: [1949, 2026],
     description: '新中国成立，改革开放，走向民族复兴之路。',
     color: '#DE2910',
+    artwork: 'images/dynasties/gongheguo.jpg',
+    artworkPosition: 'center center',
   },
 ];

@@ -12,31 +12,31 @@ figures:
     englishName: Qin Shi Huang (the First Emperor)
     role: First Emperor of China
     years: "259–210 BCE"
-    bio: Crowned King of Qin at thirteen, he conquered all six rival states by 221 BCE and invented the title *huangdi* — "August Emperor" — to mark the magnitude of his achievement. He abolished feudal lords and replaced them with royally appointed governors, standardised script, weights, and coinage across the empire, and conscripted hundreds of thousands to build the Great Wall and his own vast tomb complex. He died on his fifth inspection tour of the empire, having spent his final years in an obsessive search for an immortality elixir.
+    bio: 'Crowned King of Qin at thirteen, he conquered all six rival states by 221 BCE and invented the title *huangdi* — "August Emperor" — to mark the magnitude of his achievement. He abolished feudal lords and replaced them with royally appointed governors, standardised script, weights, and coinage across the empire, and conscripted hundreds of thousands to build the Great Wall and his own vast tomb complex. He died on his fifth inspection tour of the empire, having spent his final years in an obsessive search for an immortality elixir.'
 
   - name: 李斯
     englishName: Li Si
     role: Chancellor
     years: "284–208 BCE"
-    bio: A student of the philosopher Xunzi who entered Qin service and rose to chancellor — the chief architect of the Qin administrative revolution. He designed the standardised small-seal script, drafted the commandery-county administrative code, and authored the *Remonstrance Against Expelling Guests*, a brilliant argument for meritocratic talent recruitment. After the First Emperor's death he conspired with Zhao Gao to falsify the imperial succession, then was himself destroyed by Zhao Gao and executed by the "five punishments."
+    bio: 'A student of the philosopher Xunzi who entered Qin service and rose to chancellor — the chief architect of the Qin administrative revolution. He designed the standardised small-seal script, drafted the commandery-county administrative code, and authored the *Remonstrance Against Expelling Guests*, a brilliant argument for meritocratic talent recruitment. After the First Emperor''s death he conspired with Zhao Gao to falsify the imperial succession, then was himself destroyed by Zhao Gao and executed by the "five punishments."'
 
   - name: 蒙恬
     englishName: Meng Tian
     role: General
     years: "?–210 BCE"
-    bio: The Qin Dynasty's foremost military commander. He led 300,000 soldiers north to expel the Xiongnu from the Ordos region, then supervised the construction of the Great Wall frontier for over a decade. After the First Emperor's death, Zhao Gao falsely accused him of treason; he was forced to commit suicide in prison. He is also traditionally — though uncertainly — credited with improving the writing brush.
+    bio: 'The Qin Dynasty''s foremost military commander. He led 300,000 soldiers north to expel the Xiongnu from the Ordos region, then supervised the construction of the Great Wall frontier for over a decade. After the First Emperor''s death, Zhao Gao falsely accused him of treason; he was forced to commit suicide in prison. He is also traditionally — though uncertainly — credited with improving the writing brush.'
 
   - name: 商鞅
     englishName: Shang Yang
     role: Reformer (under Duke Xiao of Qin)
     years: "c.390–338 BCE"
-    bio: A minister from the state of Wei who persuaded Duke Xiao of Qin to implement sweeping reforms — dismantling aristocratic privilege, rewarding agricultural production and military achievement, imposing collective-responsibility law, and replacing feudal fiefs with appointed commanderies. His reforms transformed Qin from a peripheral state into the dominant power of the Warring States era, laying the institutional groundwork for unification a century later. He was executed by the nobles he had displaced as soon as his patron Duke Xiao died.
+    bio: 'A minister from the state of Wei who persuaded Duke Xiao of Qin to implement sweeping reforms — dismantling aristocratic privilege, rewarding agricultural production and military achievement, imposing collective-responsibility law, and replacing feudal fiefs with appointed commanderies. His reforms transformed Qin from a peripheral state into the dominant power of the Warring States era, laying the institutional groundwork for unification a century later. He was executed by the nobles he had displaced as soon as his patron Duke Xiao died.'
 
   - name: 赵高
     englishName: Zhao Gao
     role: Eunuch Official & Power Broker
     years: "?–207 BCE"
-    bio: A trusted official who managed the imperial seals and carriages under the First Emperor. After the emperor's death on tour, he conspired with Chancellor Li Si to suppress the legitimate succession and install the pliable Prince Huhai as Second Emperor. He then systematically eliminated his co-conspirators, drove Li Si to execution, and effectively ruled as regent until he himself was killed by the last Qin king, Ziying. His "calling a deer a horse" test of court loyalty gave Chinese the phrase for brazen deception.
+    bio: 'A trusted official who managed the imperial seals and carriages under the First Emperor. After the emperor''s death on tour, he conspired with Chancellor Li Si to suppress the legitimate succession and install the pliable Prince Huhai as Second Emperor. He then systematically eliminated his co-conspirators, drove Li Si to execution, and effectively ruled as regent until he himself was killed by the last Qin king, Ziying. His "calling a deer a horse" test of court loyalty gave Chinese the phrase for brazen deception.'
 
 events:
   - year: "230–221 BCE"
