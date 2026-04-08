@@ -12,31 +12,31 @@ figures:
     englishName: Emperor Taizong (Li Shimin)
     role: Second Emperor of the Tang
     years: "598–649"
-    bio: The second Tang emperor, who seized the throne by killing his brothers in the Xuanwu Gate Incident of 626. His "Reign of Zhenguan" became the gold standard of Chinese governance — light taxation, open remonstrance, and talent drawn from across the empire. He defeated the Eastern Turkic Khaganate and was honoured by steppe peoples as the "Heavenly Khagan."
+    bio: 'The second Tang emperor, who seized the throne by killing his brothers in the Xuanwu Gate Incident of 626. His "Reign of Zhenguan" became the gold standard of Chinese governance — light taxation, open remonstrance, and talent drawn from across the empire. He defeated the Eastern Turkic Khaganate and was honoured by steppe peoples as the "Heavenly Khagan."'
 
   - name: 武则天
     englishName: Empress Wu Zetian
     role: China's Only Female Emperor
     years: "624–705"
-    bio: Concubine of Emperor Taizong, then empress consort of Emperor Gaozong, Wu Zetian deposed her own son to found the Zhou dynasty in 690 — the only woman in Chinese history to rule as emperor in her own name. She dramatically expanded civil service recruitment, drawing talent from outside the aristocracy. Later dynasties condemned her ambition; modern historians acknowledge her competent administration.
+    bio: 'Concubine of Emperor Taizong, then empress consort of Emperor Gaozong, Wu Zetian deposed her own son to found the Zhou dynasty in 690 — the only woman in Chinese history to rule as emperor in her own name. She dramatically expanded civil service recruitment, drawing talent from outside the aristocracy. Later dynasties condemned her ambition; modern historians acknowledge her competent administration.'
 
   - name: 李白
     englishName: Li Bai (the Poet Immortal)
     role: Poet
     years: "701–762"
-    bio: The most celebrated poet of the Tang era, called the "Immortal Poet" for his otherworldly imagination and technical brilliance. Li Bai's verse spans moonlit reverie, heroic adventure, and Daoist transcendence. He spent his life wandering, drinking, and writing — briefly summoned to the imperial court, then just as quickly dismissed. His friendship and creative rivalry with Du Fu produced the greatest double act in Chinese literary history.
+    bio: 'The most celebrated poet of the Tang era, called the "Immortal Poet" for his otherworldly imagination and technical brilliance. Li Bai''s verse spans moonlit reverie, heroic adventure, and Daoist transcendence. He spent his life wandering, drinking, and writing — briefly summoned to the imperial court, then just as quickly dismissed. His friendship and creative rivalry with Du Fu produced the greatest double act in Chinese literary history.'
 
   - name: 杜甫
     englishName: Du Fu (the Poet Sage)
     role: Poet
     years: "712–770"
-    bio: Where Li Bai soared, Du Fu bore witness. Called the "Sage of Poetry," Du Fu documented the An-Shi Rebellion with raw realism — conscription, famine, refugees — in poems that remain China's most morally serious literature. He failed the civil examinations, held only minor posts, and died in poverty, but his complete works were treasured by every subsequent generation of Chinese writers.
+    bio: 'Where Li Bai soared, Du Fu bore witness. Called the "Sage of Poetry," Du Fu documented the An-Shi Rebellion with raw realism — conscription, famine, refugees — in poems that remain China''s most morally serious literature. He failed the civil examinations, held only minor posts, and died in poverty, but his complete works were treasured by every subsequent generation of Chinese writers.'
 
   - name: 玄奘
     englishName: Xuanzang
     role: Buddhist Monk & Translator
     years: "602–664"
-    bio: A monk who defied an imperial travel ban to journey overland to India, spending seventeen years studying and collecting Buddhist scriptures. He returned to Chang'an with over 600 texts and devoted the rest of his life to translation. His travelogue, *Great Tang Records on the Western Regions*, remains a primary source for historians of Central and South Asia. His journey inspired the classic novel *Journey to the West*.
+    bio: 'A monk who defied an imperial travel ban to journey overland to India, spending seventeen years studying and collecting Buddhist scriptures. He returned to Chang''an with over 600 texts and devoted the rest of his life to translation. His travelogue, *Great Tang Records on the Western Regions*, remains a primary source for historians of Central and South Asia. His journey inspired the classic novel *Journey to the West*.'
 
 events:
   - year: "618"

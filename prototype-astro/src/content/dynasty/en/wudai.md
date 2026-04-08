@@ -11,27 +11,27 @@ figures:
     englishName: Zhu Wen (Emperor Taizu of Later Liang)
     role: Founding Emperor of Later Liang
     years: 852–912
-    bio: A former rebel under Huang Chao who defected to the Tang and rose to become the most powerful warlord in China. In 907 he forced the last Tang emperor to abdicate and founded the Later Liang, ending nearly three centuries of Tang rule. Ruthless and suspicious, he was murdered by his own son in 912.
+    bio: 'A former rebel under Huang Chao who defected to the Tang and rose to become the most powerful warlord in China. In 907 he forced the last Tang emperor to abdicate and founded the Later Liang, ending nearly three centuries of Tang rule. Ruthless and suspicious, he was murdered by his own son in 912.'
   - name: 李存勖
     englishName: Li Cunxu (Emperor Zhuangzong of Later Tang)
     role: Founding Emperor of Later Tang
     years: 885–926
-    bio: Son of the Shatuo warlord Li Keyong, he was a brilliant cavalry commander who destroyed the Later Liang in 923 and proclaimed the restoration of the Tang. His early reign showed promise, but he became infatuated with court actors and musicians, neglecting governance. Ouyang Xiu's famous preface "On the Actors" uses his downfall as a cautionary tale.
+    bio: 'Son of the Shatuo warlord Li Keyong, he was a brilliant cavalry commander who destroyed the Later Liang in 923 and proclaimed the restoration of the Tang. His early reign showed promise, but he became infatuated with court actors and musicians, neglecting governance. Ouyang Xiu''s famous preface "On the Actors" uses his downfall as a cautionary tale.'
   - name: 柴荣
     englishName: Chai Rong (Emperor Shizong of Later Zhou)
     role: Emperor Shizong of Later Zhou
     years: 921–959
-    bio: The most capable ruler of the Five Dynasties era. In just six years on the throne he reformed land taxation, streamlined the army, curtailed Buddhist monasteries, and launched campaigns that recovered lost territory in the south and north. His premature death at thirty-eight left the work of reunification to his general Zhao Kuangyin — the future Song founder.
+    bio: 'The most capable ruler of the Five Dynasties era. In just six years on the throne he reformed land taxation, streamlined the army, curtailed Buddhist monasteries, and launched campaigns that recovered lost territory in the south and north. His premature death at thirty-eight left the work of reunification to his general Zhao Kuangyin — the future Song founder.'
   - name: 李煜
     englishName: Li Yu (Last Ruler of Southern Tang)
     role: Last Ruler of Southern Tang & Poet
     years: 937–978
-    bio: A hopeless sovereign but a transcendent poet. After the Song conquered Southern Tang in 975, Li Yu was taken captive to Bianjing, where he poured his grief into ci lyrics of devastating beauty. "How much sorrow can one bear? / Like a river of spring water flowing east" remains among the most quoted lines in Chinese literature. He was poisoned on Song Taizong's orders.
+    bio: 'A hopeless sovereign but a transcendent poet. After the Song conquered Southern Tang in 975, Li Yu was taken captive to Bianjing, where he poured his grief into ci lyrics of devastating beauty. "How much sorrow can one bear? / Like a river of spring water flowing east" remains among the most quoted lines in Chinese literature. He was poisoned on Song Taizong''s orders.'
   - name: 冯道
     englishName: Feng Dao
     role: Chancellor & Statesman
     years: 882–954
-    bio: The most controversial politician of the era — he served four dynasties, held office under ten emperors, and was chancellor under three. Traditional historians condemned his disloyalty; modern scholars note his pragmatic stabilisation of government during chaos. His greatest legacy is commissioning the printing of the Nine Confucian Classics, the first large-scale government printing project in Chinese history.
+    bio: 'The most controversial politician of the era — he served four dynasties, held office under ten emperors, and was chancellor under three. Traditional historians condemned his disloyalty; modern scholars note his pragmatic stabilisation of government during chaos. His greatest legacy is commissioning the printing of the Nine Confucian Classics, the first large-scale government printing project in Chinese history.'
 events:
   - year: "907"
     name: 朱温篡唐

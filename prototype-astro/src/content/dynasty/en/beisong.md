@@ -11,27 +11,27 @@ figures:
     englishName: Emperor Taizu (Zhao Kuangyin)
     role: Founding Emperor
     years: 927–976
-    bio: A military commander of the Later Zhou who was acclaimed emperor by his troops at Chenqiao in 960. He reunified most of China and demilitarised the state through the celebrated "Cup of Wine" episode — persuading his generals to trade their commands for wealth and titles, ending the cycle of warlordism that had plagued the Tang's final century.
+    bio: 'A military commander of the Later Zhou who was acclaimed emperor by his troops at Chenqiao in 960. He reunified most of China and demilitarised the state through the celebrated "Cup of Wine" episode — persuading his generals to trade their commands for wealth and titles, ending the cycle of warlordism that had plagued the Tang''s final century.'
   - name: 范仲淹
     englishName: Fan Zhongyan
     role: Statesman & Essayist
     years: 989–1052
-    bio: A senior official who led the short-lived Qingli Reforms of 1043. His essay "Record of Yueyang Tower" contains the line "Be first to bear the world's hardships, last to enjoy its pleasures" — a phrase that became the moral creed of the Chinese scholar-official class for nearly a millennium.
+    bio: 'A senior official who led the short-lived Qingli Reforms of 1043. His essay "Record of Yueyang Tower" contains the line "Be first to bear the world''s hardships, last to enjoy its pleasures" — a phrase that became the moral creed of the Chinese scholar-official class for nearly a millennium.'
   - name: 王安石
     englishName: Wang Anshi
     role: Chancellor & Reformer
     years: 1021–1086
-    bio: Chancellor under Emperor Shenzong, architect of the sweeping Xining Reforms. His New Policies — state agricultural loans, local militia, reformed taxation — aimed to enrich the state and strengthen the army. His reforms split the court into bitter factions and are still debated by historians today.
+    bio: 'Chancellor under Emperor Shenzong, architect of the sweeping Xining Reforms. His New Policies — state agricultural loans, local militia, reformed taxation — aimed to enrich the state and strengthen the army. His reforms split the court into bitter factions and are still debated by historians today.'
   - name: 苏轼
     englishName: Su Shi (Su Dongpo)
     role: Poet, Calligrapher & Official
     years: 1037–1101
-    bio: One of the most versatile geniuses in Chinese history — poet, calligrapher, painter, and gastronome. His boldly expansive ci lyrics opened the heroic school of Song poetry. Repeatedly exiled for opposing Wang Anshi's reforms, he spent his final years on Hainan Island.
+    bio: 'One of the most versatile geniuses in Chinese history — poet, calligrapher, painter, and gastronome. His boldly expansive ci lyrics opened the heroic school of Song poetry. Repeatedly exiled for opposing Wang Anshi''s reforms, he spent his final years on Hainan Island.'
   - name: 沈括
     englishName: Shen Kuo
     role: Polymath & Scientist
     years: 1031–1095
-    bio: Author of Dream Pool Essays, a compendium spanning astronomy, geology, physics, and engineering. He was the first to describe magnetic declination, to name petroleum (石油), and to record movable type printing in detail. Joseph Needham called his work "a landmark in the history of Chinese science."
+    bio: 'Author of Dream Pool Essays, a compendium spanning astronomy, geology, physics, and engineering. He was the first to describe magnetic declination, to name petroleum (石油), and to record movable type printing in detail. Joseph Needham called his work "a landmark in the history of Chinese science."'
 events:
   - year: "960"
     name: 陈桥兵变
