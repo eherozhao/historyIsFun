@@ -24,7 +24,7 @@ export const dynasties: Dynasty[] = [
     description: '三皇五帝的神话时代，华夏文明的源头，包括黄帝、尧、舜等传说中的圣王。',
     color: '#8B7355',
     artwork: 'images/dynasties/shanggu.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 60%',
   },
   {
     slug: 'xia',
@@ -35,7 +35,7 @@ export const dynasties: Dynasty[] = [
     description: '中国历史上第一个世袭王朝，大禹治水，开创家天下之先河。',
     color: '#6B8E23',
     artwork: 'images/dynasties/xia.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 50%',
   },
   {
     slug: 'shang',
@@ -57,7 +57,7 @@ export const dynasties: Dynasty[] = [
     description: '周公制礼作乐，分封诸侯，奠定了中华礼乐文明的基础。',
     color: '#2E8B57',
     artwork: 'images/dynasties/xizhou.jpg',
-    artworkPosition: 'center 30%',
+    artworkPosition: 'center 50%',
   },
   {
     slug: 'dongzhou',
@@ -90,7 +90,7 @@ export const dynasties: Dynasty[] = [
     description: '汉武帝开疆拓土，张骞通西域，丝绸之路开启东西方文明交流。',
     color: '#C41E24',
     artwork: 'images/dynasties/xihan.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 55%',
   },
   {
     slug: 'donghan',
@@ -101,7 +101,7 @@ export const dynasties: Dynasty[] = [
     description: '光武中兴，造纸术改良，佛教东传，班超经营西域。',
     color: '#B22222',
     artwork: 'images/dynasties/donghan.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 45%',
   },
   {
     slug: 'sanguo',
@@ -134,7 +134,7 @@ export const dynasties: Dynasty[] = [
     description: '衣冠南渡，王羲之书法绝伦，陶渊明归隐田园，士族文化达到鼎盛。',
     color: '#2F4F4F',
     artwork: 'images/dynasties/dongjin.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 40%',
   },
   {
     slug: 'nanbeichao',
@@ -145,7 +145,7 @@ export const dynasties: Dynasty[] = [
     description: '民族大融合时期，佛教艺术繁荣，云冈、龙门石窟开凿。',
     color: '#483D8B',
     artwork: 'images/dynasties/nanbeichao.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 50%',
   },
   {
     slug: 'sui',
@@ -156,7 +156,7 @@ export const dynasties: Dynasty[] = [
     description: '隋文帝重新统一中国，开创科举制度，修建大运河，为盛唐奠基。',
     color: '#006400',
     artwork: 'images/dynasties/sui.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 60%',
   },
   {
     slug: 'tang',
@@ -200,7 +200,7 @@ export const dynasties: Dynasty[] = [
     description: '偏安江南，理学兴盛，辛弃疾、陆游的爱国诗词慷慨激昂。',
     color: '#4169E1',
     artwork: 'images/dynasties/nansong.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 50%',
   },
   {
     slug: 'yuan',
@@ -211,7 +211,7 @@ export const dynasties: Dynasty[] = [
     description: '蒙古铁骑建立的大一统帝国，疆域空前辽阔，元曲繁荣，中西交流频繁。',
     color: '#1C1C1C',
     artwork: 'images/dynasties/yuan.jpg',
-    artworkPosition: 'center 70%',
+    artworkPosition: 'center 45%',
   },
   {
     slug: 'ming',
@@ -222,7 +222,7 @@ export const dynasties: Dynasty[] = [
     description: '郑和七下西洋，紫禁城巍峨矗立，《本草纲目》集医学大成。',
     color: '#C41E24',
     artwork: 'images/dynasties/ming.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 40%',
   },
   {
     slug: 'qing',
@@ -233,7 +233,7 @@ export const dynasties: Dynasty[] = [
     description: '康乾盛世疆域辽阔，《红楼梦》文学巅峰，晚期遭遇千年未有之变局。',
     color: '#FFD700',
     artwork: 'images/dynasties/qing.jpg',
-    artworkPosition: 'center 45%',
+    artworkPosition: 'center 50%',
   },
   {
     slug: 'minguo',
@@ -244,7 +244,7 @@ export const dynasties: Dynasty[] = [
     description: '辛亥革命推翻帝制，五四运动唤醒民族意识，新文化运动开启现代化进程。',
     color: '#003366',
     artwork: 'images/dynasties/minguo.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 45%',
   },
   {
     slug: 'gongheguo',
@@ -255,6 +255,6 @@ export const dynasties: Dynasty[] = [
     description: '新中国成立，改革开放，走向民族复兴之路。',
     color: '#DE2910',
     artwork: 'images/dynasties/gongheguo.jpg',
-    artworkPosition: 'center center',
+    artworkPosition: 'center 50%',
   },
 ];

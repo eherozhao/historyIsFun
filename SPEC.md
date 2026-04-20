@@ -16,12 +16,12 @@ A bilingual (Chinese/English) interactive website presenting Chinese history chr
 
 | Layer | Choice | Rationale |
 |-------|--------|-----------|
-| Framework | **Astro 4+** | Content-first, zero JS by default, built-in i18n, Content Collections for Markdown |
-| Styling | **Tailwind CSS 4** | Utility-first, rapid iteration |
-| Content | **Markdown/MDX** | Stored in `content/zh/` and `content/en/`, no backend needed |
-| i18n | Astro built-in | Route-based: `/zh/...` and `/en/...` |
-| Deployment | **GitHub Pages** via GitHub Actions | Free, integrated with repo |
-| Interactive | Astro Islands (React/Svelte as needed) | Only hydrate what needs interactivity |
+| Framework | **Astro 4.16+** | Content-first, SSG, file-based routing, Content Collections |
+| Styling | **Tailwind CSS 3.4** | Utility-first, custom design tokens |
+| Content | **Markdown** | `src/content/dynasty/zh/` and `src/content/dynasty/en/` |
+| i18n | Route-based | `/zh/dynasty/:slug` and `/en/dynasty/:slug` |
+| Deployment | **GitHub Pages** via GitHub Actions | Auto-deploy on push to `main` |
+| Interactive | Vanilla JS in `<script>` blocks | No framework components — zero runtime dependencies |
 
 ---
 
@@ -96,19 +96,19 @@ The homepage is a **horizontal scroll experience** — the user moves from right
 
 ### Directory Layout
 ```
-content/
-├── zh/
-│   ├── dynasties/
-│   │   ├── wudai.md          # 五代十国 (starting dynasty)
-│   │   ├── tang.md
-│   │   └── ...
-│   └── index.md
-├── en/
-│   ├── dynasties/
-│   │   ├── wudai.md
-│   │   ├── tang.md
-│   │   └── ...
-│   └── index.md
+prototype-astro/src/content/dynasty/
+├── zh/          # Chinese Markdown files
+│   ├── beisong.md
+│   ├── tang.md
+│   ├── qin.md
+│   ├── wudai.md
+│   └── {slug}.md ...
+└── en/          # English Markdown files (same slugs)
+    ├── beisong.md
+    ├── tang.md
+    ├── qin.md
+    ├── wudai.md
+    └── {slug}.md ...
 ```
 
 ### Markdown Frontmatter Schema
@@ -227,15 +227,6 @@ References render in a smaller, muted style to distinguish from main narrative.
 
 ---
 
-### Content Per Dynasty (Markdown file structure)
-Each `content/zh/` and `content/en/` Markdown file contains these H2 sections in order:
-1. 建立与统一 / Rise and Unification
-2. [Era-specific section — e.g. 盛唐气象, 经济繁荣, 制度建设]
-3. 重要人物 / Key Figures (bullet list for now; will migrate to structured data)
-4. [Era-specific section]
-5. [Era-specific section]
-6. 参考资料 / References (primary sources, then secondary scholarship)
-
 ---
 
 ## Dynasties (Full List, Chronological)
@@ -317,21 +308,69 @@ Each `content/zh/` and `content/en/` Markdown file contains these H2 sections in
 
 ### M7: Custom Domain
 - [ ] Register domain (e.g. `chroniclesofchina.com` or `huaxiachunqiu.com`)
-- [ ] Add `prototype-astro/public/CNAME` with domain name
+- [ ] Add `prototype-astro/public/CNAME` containing just the domain name
 - [ ] Update `astro.config.mjs`: `site` → custom domain, `base` → `'/'`
-- [ ] Configure DNS: four A records → GitHub Pages IPs + CNAME `www` → `eherozhao.github.io`
-- [ ] In GitHub repo Settings → Pages, verify custom domain and enable HTTPS
+- [ ] Configure DNS: four A records (`185.199.108–111.153`) + CNAME `www` → `eherozhao.github.io`
+- [ ] GitHub repo Settings → Pages: verify domain, enable Enforce HTTPS
 
-### M7: Custom Domain
-- [ ] Register a domain (e.g. `chroniclesofchina.com` or `huaxiachunqiu.com`) from a registrar (Namecheap, Cloudflare Registrar, etc.)
-- [ ] Add `prototype-astro/public/CNAME` file containing just the domain name (e.g. `chroniclesofchina.com`)
-- [ ] Update `astro.config.mjs`: change `site` to `https://yourcustomdomain.com` and `base` to `'/'`
-- [ ] Update all hardcoded references to `/chronicles-of-china/` if any remain
-- [ ] Configure DNS at registrar:
-  - Add four A records pointing `@` to GitHub Pages IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-  - Add a CNAME record pointing `www` to `eherozhao.github.io`
-- [ ] In GitHub repo Settings → Pages, verify custom domain is detected and enable "Enforce HTTPS"
-- [ ] Test that both `www.` and apex domain redirect correctly
+---
+
+## Hero Artwork — All 22 Dynasties
+
+Each dynasty page can have a hero background image (`artwork` + `artworkPosition` in `dynasties.ts`, file in `public/images/`). All images must be public domain. Target file size ≤200 KB; resize to ~1280px wide before saving.
+
+**How to add an image:**
+1. Download from the Wikimedia URL below
+2. Resize/compress to ≤200 KB (e.g. `sips -Z 1280 file.jpg` on Mac, or squoosh.app)
+3. Save to `prototype-astro/public/images/{filename}`
+4. The `artwork` entry in `dynasties.ts` is already set — no code change needed
+
+| # | Dynasty | Status | Artwork | Artist / Date | Save as | Wikimedia URL |
+|---|---------|--------|---------|--------------|---------|---------------|
+| 1 | 上古传说 | ⬜ | 伏羲女娲图 (Fuxi and Nü Wa) | Tang dynasty silk painting, c. 7–8th c. | `shanggu-fuxi-nuwa.jpg` | `https://upload.wikimedia.org/wikipedia/commons/2/2c/Fuxi_and_N%C3%BCwa2.jpg` |
+| 2 | 夏 | ⬜ | 二里头铜爵 (Erlitou bronze jue) | c. 1700 BCE, archaeological | `xia-erlitou-jue.jpg` | `https://upload.wikimedia.org/wikipedia/commons/7/7f/Erlitou-bronzeJue.jpg` |
+| 3 | 商 | ⬜ | 后母戊鼎 (Houmuwu Ding) | c. 1250 BCE, National Museum | `shang-houmuwu-ding.jpg` | `https://upload.wikimedia.org/wikipedia/commons/f/f7/Simuwu_ding.jpg` |
+| 4 | 西周 | ⬜ | 何尊 (He Zun bronze) | c. 1038 BCE, Baoji Bronze Museum | `xizhou-he-zun.jpg` | `https://upload.wikimedia.org/wikipedia/commons/2/2e/He_Zun_inscription.jpg` |
+| 5 | 东周 | ⬜ | 曾侯乙编钟 (Marquis Yi bells) | 433 BCE, Hubei Provincial Museum | `dongzhou-bianzhong.jpg` | `https://upload.wikimedia.org/wikipedia/commons/4/4f/Bianzhong_of_Marquis_Yi_of_Zeng.jpg` |
+| 6 | 秦 | 🟡 placeholder | 铜车马 (Bronze Chariot No. 2) | c. 210 BCE, Xi'an | `qin-bronze-chariot.jpg` | `https://upload.wikimedia.org/wikipedia/commons/a/a0/Qin_bronze_chariot_two.jpg` |
+| 7 | 西汉 | ⬜ | 马王堆T形帛画 (Mawangdui banner) | c. 168 BCE, Hunan Museum | `xihan-mawangdui.jpg` | `https://upload.wikimedia.org/wikipedia/commons/9/9e/MawangduiBanner.jpg` |
+| 8 | 东汉 | ⬜ | 铜奔马 (Flying Horse of Gansu) | c. 2nd c. CE, Gansu Museum | `donghan-flying-horse.jpg` | `https://upload.wikimedia.org/wikipedia/commons/e/e3/Flying_Horse_of_Gansu.jpg` |
+| 9 | 三国 | ⬜ | 曹操高陵出土石牌 (Cao Cao tomb stone tablet) | c. 220 CE | `sanguo-caocao-tomb.jpg` | Search Wikimedia: `Cao Cao tomb` |
+| 10 | 西晋 | ⬜ | 青瓷羊形烛台 (Western Jin celadon) | 3rd–4th c., various museums | `xijin-celadon.jpg` | Search Wikimedia: `Western Jin celadon` |
+| 11 | 东晋 | ⬜ | 洛神赋图 (Nymph of the Luo River) | Attr. Gu Kaizhi, 4th c. (Song copy) | `dongjin-luoshen.jpg` | `https://upload.wikimedia.org/wikipedia/commons/a/a1/Gu_Kaizhi_-_Nymph_of_the_Luo_River_%28detail%29.jpg` |
+| 12 | 南北朝 | ⬜ | 敦煌莫高窟第285窟壁画 (Mogao Cave 285) | Western Wei, c. 538–539 CE | `nanbeichao-mogao285.jpg` | `https://upload.wikimedia.org/wikipedia/commons/5/56/Dunhuang_Mogao_Cave_285.jpg` |
+| 13 | 隋 | ⬜ | 游春图 (Spring Excursion) | Attr. Zhan Ziqian, c. 600 CE | `sui-youchu-tu.jpg` | `https://upload.wikimedia.org/wikipedia/commons/6/6b/Zhan_Ziqian_-_Excursion_in_Spring.jpg` |
+| 14 | 唐 | 🟡 placeholder | 步辇图 (Emperor Taizong Receives Tibetan Envoy) | Yan Liben, c. 641 CE | `tang-bunian-tu.jpg` | `https://upload.wikimedia.org/wikipedia/commons/1/1b/Emperor_Taizong_Receiving_the_Tibetan_Envoy%28Bunian_Tu%29.jpg` |
+| 15 | 五代十国 | ✅ | 韩熙载夜宴图 (Night Revels of Han Xizai) | Attr. Gu Hongzhong, c. 970 CE | `night-revels.jpg` | already in repo |
+| 16 | 北宋 | ✅ | 千里江山图 (A Thousand Li of Rivers and Mountains) | Wang Ximeng, 1113 CE | `qianli-jiangshan.jpg` | already in repo |
+| 17 | 南宋 | ⬜ | 溪山清远图 (Clear Distant View) | Xia Gui, c. 1200 CE | `nansong-xishan-qingyuan.jpg` | `https://upload.wikimedia.org/wikipedia/commons/7/7e/Xia_Gui_-_Twelve_Views_from_a_Thatched_Hut_%28detail%29.jpg` |
+| 18 | 元 | ⬜ | 富春山居图 (Dwelling in the Fuchun Mountains) | Huang Gongwang, 1350 CE | `yuan-fuchun-shan.jpg` | `https://upload.wikimedia.org/wikipedia/commons/3/37/Huang_Gongwang_Fuchun.jpg` |
+| 19 | 明 | ⬜ | 汉宫春晓图 (Spring Morning in the Han Palace) | Qiu Ying, c. 1530 CE | `ming-hangong-chunxiao.jpg` | `https://upload.wikimedia.org/wikipedia/commons/5/54/Qiu_Ying_-_Spring_Morning_in_the_Han_Palace_%28detail%29.jpg` |
+| 20 | 清 | ⬜ | 百骏图 (One Hundred Horses) | Giuseppe Castiglione, 1728 CE | `qing-baijun-tu.jpg` | `https://upload.wikimedia.org/wikipedia/commons/e/e2/Giuseppe_Castiglione_-_One_Hundred_Horses.jpg` |
+| 21 | 中华民国 | ⬜ | 奔马图 (Galloping Horse) | Xu Beihong, c. 1940 CE | `minguo-xu-beihong-horse.jpg` | `https://upload.wikimedia.org/wikipedia/commons/0/0b/Xu_Beihong_horse.jpg` |
+| 22 | 中华人民共和国 | ⬜ | 江山如此多娇 (The Land Is So Beautiful) | Fu Baoshi & Guan Shanyue, 1959 CE | `gongheguo-jiangshan.jpg` | Search: `Fu Baoshi Guan Shanyue landscape 1959` |
+
+**Legend**: ✅ image in repo and wired | 🟡 wired in `dynasties.ts` but placeholder only | ⬜ not yet added
+
+**artworkPosition suggestions** (add to `dynasties.ts` alongside `artwork`):
+
+| Slug | artworkPosition |
+|------|----------------|
+| shanggu | `center 60%` |
+| xia | `center 50%` |
+| shang | `center 40%` |
+| xizhou | `center 50%` |
+| dongzhou | `center 30%` |
+| xihan | `center 55%` |
+| donghan | `center 45%` |
+| dongjin | `center 40%` |
+| nanbeichao | `center 50%` |
+| sui | `center 60%` |
+| nansong | `center 50%` |
+| yuan | `center 45%` |
+| ming | `center 40%` |
+| qing | `center 50%` |
+| minguo | `center 45%` |
 
 ---
 

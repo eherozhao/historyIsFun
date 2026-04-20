@@ -393,10 +393,12 @@ Valid slugs: `shanggu`, `xia`, `shang`, `xizhou`, `dongzhou`, `qin`, `xihan`, `d
 ### Content files completed
 | Dynasty | zh | en | Artwork |
 |---------|----|----|---------|
-| 秦 (Qin) | ✅ | ✅ | — |
-| 唐 (Tang) | ✅ | ✅ | — |
+| 秦 (Qin) | ✅ | ✅ | 🟡 placeholder (replace with 铜车马) |
+| 唐 (Tang) | ✅ | ✅ | 🟡 placeholder (replace with 步辇图) |
 | 五代十国 (Five Dynasties) | ✅ | ✅ | ✅ 韩熙载夜宴图 |
 | 北宋 (Northern Song) | ✅ | ✅ | ✅ 千里江山图 |
+
+See SPEC.md "Hero Artwork" section for download URLs for all 22 dynasties.
 
 ### Not Yet Implemented (see SPEC.md)
 - Content for 18 remaining dynasties
